@@ -1,5 +1,5 @@
 /* ============================================
-   Portfolio — Design System
+   Portfolio — General (shared on every page)
    ============================================ */
 
 @import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;700&family=Inter:wght@300;400;500;600&display=swap');
@@ -281,6 +281,15 @@ section {
     margin-bottom: 60px;
 }
 
+/* ---------- Page header (inner pages) ---------- */
+.page-header {
+    padding-top: calc(var(--nav-h) + 80px);
+    padding-bottom: 40px;
+}
+.page-header .container {
+    text-align: left;
+}
+
 /* ---------- Navbar ---------- */
 .navbar {
     position: fixed;
@@ -416,6 +425,7 @@ section {
 .nav-toggle.open span:nth-child(3) {
     transform: translateY(-7px) rotate(-45deg);
 }
+
 /* ---------- Buttons ---------- */
 .btn {
     display: inline-flex;
@@ -438,15 +448,6 @@ section {
     background: var(--accent);
     color: var(--bg);
 }
-/* .btn-primary::before {
-    content: '';
-    position: absolute;
-    inset: 0;
-    background: var(--accent-2);
-    transform: translateY(100%);
-    transition: transform 0.4s var(--ease-out);
-    z-index: 0;
-} */
 .btn-primary:hover::before {
     transform: translateY(0);
 }
@@ -521,14 +522,6 @@ section {
     padding-bottom: 60px;
     position: relative;
 }
-/* 
-
-.hero .container {
-  position: relative;
-  z-index: 3;
-} */
-
-/* Width fix */
 .hero .container {
     position: relative;
     z-index: 3;
@@ -593,8 +586,6 @@ section {
     color: var(--accent);
     position: relative;
 }
-
-/* Feel alive fix */
 .hero h1 .accent-text .split-word {
     background: linear-gradient(135deg, var(--accent) 10%, var(--accent-3) 90%);
     -webkit-background-clip: text;
@@ -611,6 +602,7 @@ section {
     opacity: 0;
     animation: fade-up 0.8s var(--ease-out) 1.2s forwards;
 }
+/* fade-up is also used by .form-success in contact.css */
 @keyframes fade-up {
     from {
         opacity: 0;
@@ -809,314 +801,10 @@ section {
     border: 1px solid var(--border);
 }
 
-/* ---------- Skills ---------- */
-.skills-list {
-    display: flex;
-    flex-direction: column;
-    gap: 28px;
-    max-width: 760px;
-}
-.skill-row {
-    display: flex;
-    flex-direction: column;
-    gap: 10px;
-}
-.skill-head {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-}
-.skill-head h4 {
-    font-size: 1.1rem;
-    font-family: var(--font-body);
-    font-weight: 500;
-}
-.skill-head .pct {
-    font-family: var(--font-display);
-    font-weight: 500;
-    color: var(--accent);
-    font-size: 0.9rem;
-}
-.skill-bar {
-    height: 6px;
-    border-radius: 3px;
-    background: var(--surface);
-    overflow: hidden;
-}
-.skill-fill {
-    height: 100%;
-    width: 0;
-    border-radius: 3px;
-    background: linear-gradient(90deg, var(--accent), var(--accent-3));
-    transition: width 1.5s var(--ease-out);
-    box-shadow: 0 0 12px var(--accent-glow);
-}
-
-/* ---------- Skill chips ---------- */
-.skill-chips {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 12px;
-}
-.chip {
-    padding: 10px 20px;
-    border-radius: 100px;
-    background: var(--bg-card);
-    border: 1px solid var(--border);
-    font-size: 0.9rem;
-    font-weight: 500;
-    transition: all 0.3s var(--spring);
-    cursor: default;
-}
-.chip:hover {
-    transform: translateY(-4px) scale(1.05);
-    border-color: var(--accent);
-    color: var(--accent);
-    box-shadow: 0 8px 20px rgba(0, 212, 170, 0.15);
-}
-
-/* ---------- Timeline ---------- */
-.timeline {
-    position: relative;
-    padding-left: 32px;
-    max-width: 760px;
-}
-.timeline::before {
-    content: '';
-    position: absolute;
-    left: 8px;
-    top: 8px;
-    bottom: 8px;
-    width: 2px;
-    background: linear-gradient(to bottom, var(--accent), transparent);
-}
-.timeline-item {
-    position: relative;
-    padding-bottom: 48px;
-}
-.timeline-item:last-child {
-    padding-bottom: 0;
-}
-.timeline-item::before {
-    content: '';
-    position: absolute;
-    left: -32px;
-    top: 6px;
-    width: 14px;
-    height: 14px;
-    border-radius: 50%;
-    background: var(--bg);
-    border: 2px solid var(--accent);
-    transition:
-        box-shadow 0.3s,
-        transform 0.3s;
-}
-.timeline-item:hover::before {
-    box-shadow: 0 0 16px var(--accent-glow);
-    transform: scale(1.3);
-}
-.timeline-date {
-    font-family: var(--font-display);
-    font-size: 0.85rem;
-    color: var(--accent);
-    margin-bottom: 6px;
-}
-.timeline-item h4 {
-    font-size: 1.25rem;
-    font-family: var(--font-body);
-    font-weight: 600;
-    margin-bottom: 4px;
-}
-.timeline-item .org {
-    font-size: 0.9rem;
-    color: var(--text-muted);
-    margin-bottom: 8px;
-}
-.timeline-item p {
-    font-size: 0.95rem;
-    color: var(--text-muted);
-}
-
-/* ---------- Contact form ---------- */
-.contact-form {
-    display: flex;
-    flex-direction: column;
-    gap: 20px;
-    max-width: 560px;
-}
-.field-group {
-    display: flex;
-    flex-direction: column;
-    gap: 8px;
-}
-.field-group label {
-    font-size: 0.85rem;
-    color: var(--text-muted);
-    font-weight: 500;
-}
-.field-group input,
-.field-group textarea {
-    padding: 14px 18px;
-    border-radius: var(--radius-sm);
-    background: var(--bg-card);
-    border: 1px solid var(--border);
-    color: var(--text);
-    font-family: var(--font-body);
-    font-size: 1rem;
-    transition:
-        border-color 0.3s,
-        box-shadow 0.3s;
-    outline: none;
-    resize: vertical;
-}
-.field-group input:focus,
-.field-group textarea:focus {
-    border-color: var(--accent);
-    box-shadow: 0 0 0 3px var(--accent-glow);
-}
-.field-group input::placeholder,
-.field-group textarea::placeholder {
-    color: var(--text-dim);
-}
-.form-success {
-    padding: 16px 24px;
-    border-radius: var(--radius-sm);
-    background: rgba(0, 212, 170, 0.1);
-    border: 1px solid var(--accent);
-    color: var(--accent);
-    font-size: 0.95rem;
-    display: flex;
-    align-items: center;
-    gap: 10px;
-    animation: fade-up 0.5s var(--ease-out);
-}
-
-/* ---------- Footer ---------- */
-.footer {
-    border-top: 1px solid var(--border);
-    padding: 48px 0 32px;
-    position: relative;
-    z-index: 2;
-}
-.footer .container {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    flex-wrap: wrap;
-    gap: 24px;
-}
-.footer-links {
-    display: flex;
-    gap: 24px;
-}
-.footer-links a {
-    font-size: 0.9rem;
-    color: var(--text-muted);
-    transition: color 0.3s;
-}
-.footer-links a:hover {
-    color: var(--accent);
-}
-.footer-copy {
-    font-size: 0.85rem;
-    color: var(--text-dim);
-}
-
-/* ---------- Page header ---------- */
-.page-header {
-    padding-top: calc(var(--nav-h) + 80px);
-    padding-bottom: 40px;
-}
-.page-header .container {
-    text-align: left;
-}
-
-/* ---------- Two-column layout ---------- */
-.two-col {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 60px;
-    align-items: start;
-}
-
-/* ---------- Avatar ---------- */
-.avatar-wrap {
-    position: relative;
-    width: 100%;
-    max-width: 420px;
-    aspect-ratio: 1;
-    margin: 0 auto;
-}
-.avatar-frame {
-    width: 100%;
-    height: 100%;
-    border-radius: 24px;
-    background: linear-gradient(135deg, #1a1a2e, #16213e);
-    border: 1px solid var(--border-bright);
-    display: grid;
-    place-items: center;
-    font-size: 8rem;
-    position: relative;
-    overflow: hidden;
-}
-.avatar-frame::before {
-    content: '';
-    position: absolute;
-    inset: -50%;
-    background: conic-gradient(
-        from 0deg,
-        transparent,
-        var(--accent-glow),
-        transparent 30%
-    );
-    animation: spin 6s linear infinite;
-}
-.avatar-frame::after {
-    content: '';
-    position: absolute;
-    inset: 4px;
-    border-radius: 20px;
-    background: linear-gradient(135deg, #1a1a2e, #16213e);
-}
-.avatar-frame .emoji-inner {
-    position: relative;
-    z-index: 1;
-    filter: drop-shadow(0 4px 20px rgba(0, 0, 0, 0.4));
-}
-@keyframes spin {
-    to {
-        transform: rotate(360deg);
-    }
-}
-
-.floating-badge {
-    position: absolute;
-    padding: 10px 18px;
-    border-radius: 100px;
-    background: var(--bg-card);
-    border: 1px solid var(--border-bright);
-    font-size: 0.85rem;
-    font-weight: 500;
-    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.3);
-    animation: float-badge 4s ease-in-out infinite;
-}
-.floating-badge.badge-1 {
-    top: 10%;
-    right: -20px;
-}
-.floating-badge.badge-2 {
-    bottom: 15%;
-    left: -30px;
-    animation-delay: -2s;
-}
-@keyframes float-badge {
-    0%,
-    100% {
-        transform: translateY(0);
-    }
-    50% {
-        transform: translateY(-12px);
-    }
+/* ---------- Tilt card (3D hover effect) ---------- */
+.tilt-card {
+    transform-style: preserve-3d;
+    perspective: 1000px;
 }
 
 /* ---------- Big number stats ---------- */
@@ -1154,10 +842,35 @@ section {
     margin-top: 8px;
 }
 
-/* ---------- Tilt card ---------- */
-.tilt-card {
-    transform-style: preserve-3d;
-    perspective: 1000px;
+/* ---------- Footer ---------- */
+.footer {
+    border-top: 1px solid var(--border);
+    padding: 48px 0 32px;
+    position: relative;
+    z-index: 2;
+}
+.footer .container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 24px;
+}
+.footer-links {
+    display: flex;
+    gap: 24px;
+}
+.footer-links a {
+    font-size: 0.9rem;
+    color: var(--text-muted);
+    transition: color 0.3s;
+}
+.footer-links a:hover {
+    color: var(--accent);
+}
+.footer-copy {
+    font-size: 0.85rem;
+    color: var(--text-dim);
 }
 
 /* ---------- Responsive ---------- */
@@ -1193,10 +906,6 @@ section {
         display: flex;
     }
 
-    .two-col {
-        grid-template-columns: 1fr;
-        gap: 40px;
-    }
     .hero-stats {
         gap: 28px;
         flex-wrap: wrap;

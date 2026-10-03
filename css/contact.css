@@ -1,0 +1,58 @@
+/* ============================================
+   Portfolio — Contact
+   Requires general.css (uses its variables and
+   the fade-up keyframes)
+   ============================================ */
+
+.contact-form {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    max-width: 560px;
+}
+.field-group {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+.field-group label {
+    font-size: 0.85rem;
+    color: var(--text-muted);
+    font-weight: 500;
+}
+.field-group input,
+.field-group textarea {
+    padding: 14px 18px;
+    border-radius: var(--radius-sm);
+    background: var(--bg-card);
+    border: 1px solid var(--border);
+    color: var(--text);
+    font-family: var(--font-body);
+    font-size: 1rem;
+    transition:
+        border-color 0.3s,
+        box-shadow 0.3s;
+    outline: none;
+    resize: vertical;
+}
+.field-group input:focus,
+.field-group textarea:focus {
+    border-color: var(--accent);
+    box-shadow: 0 0 0 3px var(--accent-glow);
+}
+.field-group input::placeholder,
+.field-group textarea::placeholder {
+    color: var(--text-dim);
+}
+.form-success {
+    padding: 16px 24px;
+    border-radius: var(--radius-sm);
+    background: rgba(0, 212, 170, 0.1);
+    border: 1px solid var(--accent);
+    color: var(--accent);
+    font-size: 0.95rem;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    animation: fade-up 0.5s var(--ease-out);
+}
