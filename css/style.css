@@ -438,7 +438,7 @@ section {
     background: var(--accent);
     color: var(--bg);
 }
-.btn-primary::before {
+/* .btn-primary::before {
     content: '';
     position: absolute;
     inset: 0;
@@ -446,7 +446,7 @@ section {
     transform: translateY(100%);
     transition: transform 0.4s var(--ease-out);
     z-index: 0;
-}
+} */
 .btn-primary:hover::before {
     transform: translateY(0);
 }
