@@ -721,72 +721,117 @@ section {
 /* ---------- Project cards ---------- */
 .projects-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(340px, 1fr));
+    grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
     gap: 28px;
 }
+
 .project-card {
-    background: var(--bg-card);
-    border: 1px solid var(--border);
+    position: relative;
+    aspect-ratio: 4 / 5;
     border-radius: var(--radius);
     overflow: hidden;
     cursor: pointer;
+    border: 1px solid var(--border);
+    background: var(--bg-card);
     transition:
-        transform 0.4s var(--ease-out),
+        transform 0.5s var(--ease-out),
         border-color 0.4s,
         box-shadow 0.4s;
     will-change: transform;
 }
 .project-card:hover {
+    transform: translateY(-8px);
     border-color: var(--border-bright);
-    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.4);
+    box-shadow: 0 25px 60px rgba(0, 0, 0, 0.45);
 }
+
+/* Full-bleed media (default placeholder, or a real <img>) */
 .project-thumb {
-    height: 220px;
-    position: relative;
-    overflow: hidden;
-    background: linear-gradient(135deg, #1a1a2e, #16213e);
-}
-.project-thumb::before {
-    content: '';
     position: absolute;
     inset: 0;
-    background: radial-gradient(
-        circle at 70% 30%,
-        var(--accent-glow),
-        transparent 60%
-    );
-    opacity: 0;
-    transition: opacity 0.5s;
+    background:
+        radial-gradient(circle at 25% 20%, var(--accent-glow), transparent 55%),
+        radial-gradient(circle at 80% 85%, rgba(124, 124, 255, 0.25), transparent 55%),
+        linear-gradient(135deg, #1a1a2e, #16213e);
 }
-.project-card:hover .project-thumb::before {
-    opacity: 1;
+.project-thumb img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
 }
 .project-thumb .emoji {
-    font-size: 4rem;
+    font-size: 5rem;
     display: grid;
     place-items: center;
     height: 100%;
-    transition: transform 0.5s var(--ease-out);
+    transition: transform 0.6s var(--ease-out);
 }
-.project-card:hover .project-thumb .emoji {
-    transform: scale(1.2) rotate(-5deg);
+.project-card:hover .project-thumb .emoji,
+.project-card:hover .project-thumb img {
+    transform: scale(1.08);
 }
+.project-thumb img {
+    transition: transform 0.6s var(--ease-out);
+}
+
+/* Title: small glass chip, always visible */
+.project-title-chip {
+    position: absolute;
+    left: 16px;
+    bottom: 16px;
+    padding: 8px 16px;
+    border-radius: 100px;
+    font-size: 0.9rem;
+    font-weight: 600;
+    background: rgba(255, 255, 255, 0.08);
+    border: 1px solid rgba(255, 255, 255, 0.15);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    transition: opacity 0.3s;
+}
+.project-card:hover .project-title-chip {
+    opacity: 0;
+}
+
+/* Glass overlay: hidden until hover */
 .project-body {
-    padding: 24px;
+    position: absolute;
+    left: 12px;
+    right: 12px;
+    bottom: 12px;
+    padding: 22px;
+    border-radius: calc(var(--radius) - 4px);
+    /* dark-tinted glass: stays readable over light images */
+    background: rgba(10, 10, 20, 0.55);
+    border: 1px solid rgba(255, 255, 255, 0.16);
+    box-shadow:
+        inset 0 1px 0 rgba(255, 255, 255, 0.2),
+        0 10px 40px rgba(0, 0, 0, 0.35);
+    backdrop-filter: blur(22px) saturate(140%) brightness(0.7);
+    -webkit-backdrop-filter: blur(22px) saturate(140%) brightness(0.7);
+    opacity: 0;
+    transform: translateY(24px);
+    transition:
+        opacity 0.4s var(--ease-out),
+        transform 0.5s var(--ease-out);
+}
+.project-card:hover .project-body {
+    opacity: 1;
+    transform: translateY(0);
 }
 .project-body h3 {
-    font-size: 1.3rem;
-    margin-bottom: 8px;
-    transition: color 0.3s;
+    color: #fff;
+    text-shadow: 0 1px 8px rgba(0, 0, 0, 0.5);
 }
-.project-card:hover .project-body h3 {
-    color: var(--accent);
-}
+
 .project-body p {
-    font-size: 0.95rem;
-    color: var(--text-muted);
+    font-size: 0.92rem;
+    color: rgba(255, 255, 255, 0.88);
+    text-shadow: 0 1px 6px rgba(0, 0, 0, 0.6);
     margin-bottom: 16px;
 }
+
 .project-tags {
     display: flex;
     gap: 8px;
@@ -796,11 +841,21 @@ section {
     font-size: 0.78rem;
     padding: 4px 12px;
     border-radius: 100px;
-    background: var(--surface);
-    color: var(--text-muted);
-    border: 1px solid var(--border);
+    background: rgba(255, 255, 255, 0.08);
+    color: var(--text);
+    border: 1px solid rgba(255, 255, 255, 0.15);
 }
 
+/* Touch devices have no hover, so keep the glass panel visible */
+@media (hover: none) {
+    .project-body {
+        opacity: 1;
+        transform: none;
+    }
+    .project-title-chip {
+        display: none;
+    }
+}
 /* ---------- Tilt card (3D hover effect) ---------- */
 .tilt-card {
     transform-style: preserve-3d;
