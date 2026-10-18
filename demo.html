@@ -1,0 +1,87 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Agentic Coding Assistant: Demo</title>
+    <style>
+      :root {
+        --bg: #0f1117;
+        --text: #d4d8e8;
+        --muted: #7a8096;
+        --accent: #7ee787;
+      }
+      * {
+        box-sizing: border-box;
+      }
+      body {
+        margin: 0;
+        min-height: 100vh;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        gap: 1.25rem;
+        padding: 2rem 1rem;
+        background: var(--bg);
+        color: var(--text);
+        font-family:
+          system-ui,
+          -apple-system,
+          "Segoe UI",
+          sans-serif;
+        text-align: center;
+      }
+      h1 {
+        margin: 0;
+        font-size: 1.5rem;
+      }
+      img {
+        width: 100%;
+        max-width: 860px;
+        height: auto;
+        border-radius: 12px;
+        box-shadow: 0 10px 40px rgba(0, 0, 0, 0.5);
+      }
+      .note {
+        margin: 0;
+        font-size: 0.85rem;
+        color: var(--muted);
+      }
+      .links {
+        display: flex;
+        gap: 1rem;
+        flex-wrap: wrap;
+        justify-content: center;
+      }
+      a {
+        color: var(--accent);
+        text-decoration: none;
+        border: 1px solid var(--accent);
+        padding: 0.5rem 1rem;
+        border-radius: 8px;
+      }
+      a:hover {
+        background: var(--accent);
+        color: var(--bg);
+      }
+    </style>
+  </head>
+  <body>
+    <h1>🤖 Agentic Coding Assistant</h1>
+    <img
+      src="./images/demo.gif"
+      alt="Animated example of the agent building a Tic Tac Toe game in the terminal"
+    />
+    <p class="note">Illustrative example session. Output is simulated.</p>
+    <div class="links">
+      <a
+        href="https://github.com/theprotoscore/agentic-coding-assistant"
+        target="_blank"
+        rel="noopener noreferrer"
+        >View on GitHub ↗</a
+      >
+      <a href="/">← Back to site</a>
+    </div>
+  </body>
+</html>
